@@ -11,7 +11,7 @@ var cheerio = require("cheerio");
 // Require all models
 var db = require("./models");
 
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8000;
 
 // Initialize Express
 var app = express();
@@ -28,9 +28,9 @@ app.use(express.static("public"));
 
 // Connect to the Mongo DB
 var MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+  process.env.MONGODB_URI || "mongodb://localhost/QueerInTheKnow";
 
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // Routes
 app.get("/", function(req, res) {
@@ -39,24 +39,22 @@ app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
-// A GET route for scraping the echoJS website
+// A GET route for scraping the alturi website
 app.get("/scrape", function(req, res) {
   // First, we grab the body of the html with axios
-  axios.get("http://www.echojs.com/").then(function(response) {
+  axios.get("https://alturi.demotrac.com/news_items/").then(function(response) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(response.data);
 
     // Now, we grab every h2 within an article tag, and do the following:
-    $("article h2").each(function(i, element) {
+    $("a h2").each(function(i, element) {
       // Save an empty result object
       var result = {};
 
       // Add the text and href of every link, and save them as properties of the result object
-      result.title = $(this)
-        .children("a")
-        .text();
-      result.link = $(this)
-        .children("a")
+      result.title = $(element).text();
+      result.link = $(element)
+        .parent()
         .attr("href");
 
       // Create a new Article using the `result` object built from scraping

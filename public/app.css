@@ -1,0 +1,75 @@
+body {
+  background-color: white;
+}
+
+#articles {
+  display: inline-block;
+  overflow: auto;
+  width: 70%;
+  height: 700px;
+  font-weight: bold;
+}
+#notes {
+  float: right;
+  width: 20%;
+}
+textarea,
+input {
+  display: block;
+  width: 100%;
+  background-color: #fcf5c7;
+}
+input {
+  height: 36px;
+  font-size: 24px;
+}
+textarea {
+  height: 200px;
+  font-size: 18px;
+}
+
+.jumbotron {
+  align-content: center;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.6)
+    ),
+    url("../images/newsbackground.jpg");
+  position: relative;
+}
+
+#main-heading {
+  text-align: center;
+}
+
+#slogan {
+  text-align: center;
+}
+
+#k {
+  color: #fc4e1e;
+}
+#n {
+  color: #fdc02d;
+}
+#o {
+  color: #abf172;
+}
+#w {
+  color: #676bfb;
+}
+
+#latest-news {
+  text-align: center;
+}
+h1 {
+  font-family: "IBM Plex Mono", monospace;
+  color: white;
+  background-color: black;
+}
+
+.footer {
+  color: white;
+}
