@@ -3,16 +3,52 @@ $.getJSON("/articles", function(data) {
   // For each one
   for (var i = 0; i < data.length; i++) {
     // Display the apropos information on the page
-    $("#articles").append(
+    $("#articles").prepend(
       "<p data-id='" +
         data[i]._id +
         "'>" +
         data[i].title +
         "<br />" +
+        "<a  href='" +
         data[i].link +
+        "' target='_blank'>" +
+        data[i].link +
+        "</a>" +
         "</p>"
     );
   }
+});
+
+$(document).on("click", "#latest-news-btn", function() {
+  $.ajax({
+    method: "GET",
+    url: "/scrape/"
+  }).then(function() {
+    $.getJSON("/articles", function(data) {
+      // do stuff
+      for (var i = 0; i < data.length; i++) {
+        // Display the apropos information on the page
+        $("#articles").append(
+          "<p data-id='" +
+            data[i]._id +
+            "'>" +
+            data[i].title +
+            "<br />" +
+            "<a  href='" +
+            data[i].link +
+            "' target='_blank'>" +
+            data[i].link +
+            "</a>" +
+            "</p>"
+        );
+        // call next ajax function
+        // $.ajax({
+        //   method: "GET",
+        //   url: "/articles/"
+        // });
+      }
+    });
+  });
 });
 
 // Whenever someone clicks a p tag
