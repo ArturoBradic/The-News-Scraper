@@ -1,23 +1,27 @@
-// Grab the articles as a json
-$.getJSON("/articles", function(data) {
-  // For each one
-  for (var i = 0; i < data.length; i++) {
-    // Display the apropos information on the page
-    $("#articles").prepend(
-      "<p data-id='" +
-        data[i]._id +
-        "'>" +
-        data[i].title +
-        "<br />" +
-        "<a  href='" +
-        data[i].link +
-        "' target='_blank'>" +
-        data[i].link +
-        "</a>" +
-        "</p>"
-    );
-  }
-});
+// // Grab the articles as a json
+// $.getJSON("/articles", function(data) {
+//   // For each one
+//   for (var i = 0; i < data.length; i++) {
+//     // Display the apropos information on the page
+//     $("#articles").prepend(
+//       "<p data-id='" +
+//         data[i]._id +
+//         "'>" +
+//         data[i].title +
+//         "<br />" +
+//         "<a  href='" +
+//         data[i].link +
+//         "' target='_blank'>" +
+//         data[i].link +
+//         "</a>" +
+//         "</p>"
+//     );
+//   }
+// });
+
+var date = new Date();
+var today =
+  date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear();
 
 $(document).on("click", "#latest-news-btn", function() {
   $.ajax({
@@ -27,6 +31,7 @@ $(document).on("click", "#latest-news-btn", function() {
     console.log(data);
     $.getJSON("/articles", function(data) {
       // do stuff
+      $("#checkback").append("<h2> Today's News " + today + "</h2> <br/>");
       for (var i = 0; i < data.length; i++) {
         // Display the apropos information on the page
         $("#articles").append(

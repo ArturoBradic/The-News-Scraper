@@ -42,10 +42,14 @@ textarea {
 
 #main-heading {
   text-align: center;
+  margin: 0;
 }
 
 #slogan {
   text-align: center;
+  background-color: pink;
+  margin-top: 0;
+  background-color: rgba(255, 0, 0, 0.4);
 }
 
 #k {
@@ -64,6 +68,12 @@ textarea {
 #latest-news {
   text-align: center;
 }
+
+#checkback {
+  text-align: center;
+  font-family: "IBM Plex Mono", monospace;
+}
+
 h1 {
   font-family: "IBM Plex Mono", monospace;
   color: white;
