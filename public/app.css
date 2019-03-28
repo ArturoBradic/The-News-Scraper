@@ -5,14 +5,14 @@ body {
 #articles {
   display: inline-block;
   overflow: auto;
-  width: 70%;
+  width: 90%;
   height: 700px;
   font-weight: bold;
 }
-#notes {
+/* #notes {
   float: right;
   width: 20%;
-}
+} */
 textarea,
 input {
   display: block;
