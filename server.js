@@ -28,7 +28,8 @@ app.use(express.static("public"));
 
 // Connect to the Mongo DB
 var MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://localhost/QueerInTheKnow";
+"mongodb+srv://root-user:root@news-scraper-aqwor.mongodb.net/test?retryWrites=true" ||
+  "mongodb://localhost/QueerInTheKnow";
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
