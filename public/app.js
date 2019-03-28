@@ -22,8 +22,9 @@ $.getJSON("/articles", function(data) {
 $(document).on("click", "#latest-news-btn", function() {
   $.ajax({
     method: "GET",
-    url: "/scrape/"
-  }).then(function() {
+    url: "/scrape"
+  }).then(function(data) {
+    console.log(data);
     $.getJSON("/articles", function(data) {
       // do stuff
       for (var i = 0; i < data.length; i++) {

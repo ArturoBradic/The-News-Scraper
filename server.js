@@ -70,7 +70,6 @@ app.get("/scrape", function(req, res) {
           console.log(err);
         });
     });
-
   });
 });
 
@@ -85,7 +84,7 @@ app.get("/articles", function(req, res) {
     })
     .catch(function(err) {
       // If an error occurred, send it to the client
-      res.json(err);
+      console.log(err);
     });
 });
 
@@ -101,7 +100,7 @@ app.get("/articles/:id", function(req, res) {
     })
     .catch(function(err) {
       // If an error occurred, send it to the client
-      res.json(err);
+      console.log(err);
     });
 });
 
@@ -125,7 +124,7 @@ app.post("/articles/:id", function(req, res) {
     })
     .catch(function(err) {
       // If an error occurred, send it to the client
-      res.json(err);
+      console.log(err);
     });
 });
 
